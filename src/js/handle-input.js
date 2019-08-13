@@ -21,8 +21,8 @@ async function handleUserInput(e) {
   if (userQuery.length < 3) {
     // NOTIFY
 
-    PNotify.defaults.styling = "material";
-    PNotify.defaults.icons = "material";
+    // PNotify.defaults.styling = "material";
+    // PNotify.defaults.icons = "material";
 
     PNotify.error({
       title: "Wrong input",
