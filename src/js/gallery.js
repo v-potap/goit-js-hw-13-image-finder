@@ -1,21 +1,28 @@
-import FindPhotoService from "./apiService";
+import photoSetTemplate from "../templates/gallery.hbs";
+import handleGalleryClick from "./handle-gallery";
+import observer from "./observer";
 
-const domRefs = {
-  form: document.querySelector("#search-form")
-};
-
-const findPhotoService = new FindPhotoService();
-
-domRefs.form.addEventListener("submit", handleUserInput);
-
-function handleUserInput(e) {
-  e.preventDefault();
-  const userQuery = domRefs.form.querySelector("input").value;
-
-  if (userQuery === "") {
-    return;
+export default function applyNewGallery(domElement) {
+  // console.log("applyNewGallery start -> domElement :", domElement);
+  const galleryMarkup = photoSetTemplate();
+  let galleryRef = document.querySelector(".gallery");
+  let loadMoreRef = document.querySelector(".loader-ellips");
+  
+  if (galleryRef !== null) {
+    galleryRef.remove();
+  }
+  
+  if (loadMoreRef !== null) {
+    observer.unobserve(loadMoreRef);
+    loadMoreRef.remove();
   }
 
-  findPhotoService.setQuery(userQuery);
+  domElement.insertAdjacentHTML("afterend", galleryMarkup);
+  galleryRef = document.querySelector(".gallery");
 
+  galleryRef.addEventListener("click", handleGalleryClick);
+
+  // console.log("applyNewGallery finish -> galleryRef :", galleryRef);
+
+  return galleryRef;
 }

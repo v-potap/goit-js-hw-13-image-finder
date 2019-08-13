@@ -1,3 +1,10 @@
-import './js/form-search';
+import "./css/gallery.css";
 
-import './js/gallery';
+import "./css/form-search.css";
+
+import "./css/loader.css";
+
+import "./js/form-search";
+
+import "./js/handle-input";
+

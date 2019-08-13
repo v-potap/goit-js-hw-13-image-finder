@@ -1,0 +1,18 @@
+.search-form {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin: 0 auto;
+  z-index: 1;
+  background: grey;
+  color: white;
+  width: 100vw;
+  height: 5vh;
+}
+
+.search-info {
+  margin-right: 3vw;
+}
